@@ -1,6 +1,5 @@
-const mysql = require('mysql2/promise');
-
-module.exports.connect = async () => {
+import mysql from 'mysql2/promise'
+export const connect = async () => {
     const connection = await mysql.createConnection({
         host: 'localhost',
         port: 3306,
