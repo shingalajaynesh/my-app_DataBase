@@ -1,5 +1,4 @@
 import express from 'express';
-import { getUsers } from './modals/users.js';
 import { connect } from './demo_db_connection.js'
 import router from './routes/index.js'
 import cors from 'cors'
