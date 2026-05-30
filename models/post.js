@@ -19,7 +19,12 @@ export const getUserPostLikeByID = async (db, postId, userId) => {
     return data
 }
 
+export const getPostOwner = async (db, post_id) => {
+    const [data] = await db.query("select user_id from posts where id=?", [post_id])
+    return data
+}
 export const addComment = async (db, body, user) => {
+    a
 
     return await db.query(
         `INSERT INTO comments 
