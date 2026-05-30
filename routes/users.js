@@ -1,13 +1,13 @@
-import express from 'express'
-import { getUsers } from '../models/users.js'
+import express from "express";
+import { getUsers } from "../models/users.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/users', async (req, res) => {
-    const users = await getUsers(req.db)
-    res.status(200).send({
-        users
-    })
-})
+router.get("/users", async (req, res) => {
+  const users = await getUsers(req.db);
+  res.status(200).send({
+    users,
+  });
+});
 
-export default router
+export default router;
