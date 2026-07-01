@@ -15,12 +15,10 @@ router.post("/registration", async ({ body, db }, res) => {
   const [affectedRows] = await addNewUser(db, body);
   console.log(affectedRows);
   if (affectedRows) {
-    res
-      .json({
-        status: true,
-        message: "User Added successfully",
-      })
-      .send();
+    res.json({
+      status: true,
+      message: "User Added successfully",
+    });
   }
 });
 
@@ -38,7 +36,7 @@ router.post("/login", async (req, res) => {
   }
   const accessToken = jwt.sign(
     { id: user.id, email: user.email, role: user.role },
-    "mySecretKey",
+    process.env.JWT_SECRET || "mySecretKey",
     { expiresIn: "2h" },
   );
 

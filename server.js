@@ -2,12 +2,11 @@ import express from "express";
 import { connect } from "./demo_db_connection.js";
 import router from "./routes/index.js";
 import cors from "cors";
-import { startWSServer } from "./ws.js";
 import http from "http";
 import { WebSocketServer } from "ws";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server, path: "/ws" });
 app.use(cors());

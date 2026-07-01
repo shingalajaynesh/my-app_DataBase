@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
     // Extract token
     const token = authHeader.split(" ")[1];
     // Verify token
-    const verifyUser = jwt.verify(token, "mySecretKey");
+    const verifyUser = jwt.verify(token, process.env.JWT_SECRET || "mySecretKey");
     // Store user in request
     req.user = verifyUser;
 

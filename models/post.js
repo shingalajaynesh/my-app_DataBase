@@ -37,8 +37,6 @@ export const getPostOwner = async (db, post_id) => {
   return data;
 };
 export const addComment = async (db, body, user) => {
-  a;
-
   return await db.query(
     `INSERT INTO comments 
         (id, user_id, post_id, comment, created_at, updated_at)
