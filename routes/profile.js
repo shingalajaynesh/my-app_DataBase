@@ -6,6 +6,13 @@ const router = express.Router();
 router.get("/profile", auth, async ({ db, user }, res) => {
   const [users] = await db.query("SELECT * FROM users WHERE id = ?", [user.id]);
 
+  if (!users || users.length === 0) {
+    return res.status(404).json({
+      status: false,
+      message: "User not found",
+    });
+  }
+
   return res.json({
     status: true,
     user: users[0],

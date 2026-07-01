@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js "
+    "start": "nodemon server.js ",
+    "reset-db": "node reset_db.js"
   },
   "dependencies": {
     "cors": "^2.8.6",

@@ -24,9 +24,9 @@ wss.on("connection", (ws, req) => {
     const data = JSON.parse(body.toString());
     if (data.topic === "register") {
       wsClients.set(data.user, ws);
-      ws.send("Thanks Registerd");
+      ws.send(JSON.stringify({ topic: "register_success", message: "Thanks Registered" }));
     } else {
-      ws.send("Bye Bye");
+      ws.send(JSON.stringify({ topic: "error", message: "Bye Bye" }));
     }
   });
 });
